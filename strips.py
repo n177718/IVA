@@ -352,7 +352,8 @@ def linear_solver(world):
 
     goals = list(world.goals)
     solution = linear_solver_helper(world, state, goals, [])
-    find_SE(solution,goals)
+    possible_actions = sorted(get_possible_grounds(world, goal), key=lambda c: initial_state_distance(state, c.pre))
+    print(possible_actions)
     return solution
 
 def linear_solver_helper(world, state, goals, current_plan, depth = 0):
