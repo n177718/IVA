@@ -578,11 +578,10 @@ def print_plan(plan):
 
 def find_SE(goals,solution):
     results = []
-    for ground in solution:
-        for p in ground.post:
-            for g in goals:
-                if strong_match(p, goals):
-                    results.append(ground)
+    for s in solution:
+        for g in goals:
+            if strong_match(p, g):
+                results.append(ground)
                     
     print(results)
 #    return SE
