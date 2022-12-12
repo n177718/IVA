@@ -578,7 +578,7 @@ def print_plan(plan):
 
 def find_SE(goals,world):
     results = []
-    for g in goals:
+    for goal in goals:
         result = sorted(get_possible_grounds(world, goal), key=lambda c: initial_state_distance(state, c.pre))
         results.append(result)
     print(results)
