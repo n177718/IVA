@@ -601,7 +601,7 @@ def main():
         else:
             print "Solved!"
             print_plan(solution)
-            find_SE(solution,goals)
+            find_SE(solution,w.goals)
 
             #from show_strips import show_solution
             #show_solution(solution)
