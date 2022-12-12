@@ -1,0 +1,36 @@
+Initial state: HasCake(Red),KnowGranny(Red),AtHome(Red),Hunting(Hunter),Alive(Red),Alive(Granny),Alive(Wolf),Hungry(Wolf)
+Goal state:	Escaped(Red),HasCake(Granny)
+
+Actions:	
+	       //Red move to the door of Granny's house
+               VisitGranny(x)
+               Preconditions:KnowGranny(x),HasCake(x),AtHome(x)
+               Postconditions:AtDoor(x),!AtHome(x)
+	       //Wolf eats Granny and pretend Granny
+               EatPretendGranny(x,y)
+               Preconditions:Hungry(x),Alive(y)
+               Postconditions:InBelly(y),PretendGranny(x),!Alive(y),!Hungry(x)
+	       //Red enters the house
+               EnterHouse(x)
+               Preconditions:AtDoor(x)
+               Postconditions:InHouse(x),!AtDoor(x)
+	       //Wolf chases Red
+               Chase(x,y)
+               Preconditions:PretendGranny(x),InHouse(y)
+               Postconditions:Scream(y),!PretendGranny(x),!InHouse(y)
+	       //Hunting hunter heard scream
+               HeardScream(x,y)
+               Preconditions: Hunting(x),Scream(y)
+               Postconditions: CheckHouse(x),!Hunting(x)
+	       //Hunter kills wolf
+               HunterKillWolf(x,y,z)
+               Preconditions: CheckHouse(x),Scream(z)
+               Postconditions: Escaped(z),!Scream(z),!CheckHouse(x)
+	       //Hunter opens Wolf's belly and saves Granny
+               OpenBelly(x,y,z)
+               Preconditions: Escaped(x),InBelly(y)
+               Postconditions: Alive(y),!InBelly(y),InHouse(x)
+	       //Red gives cake to Granny
+               GiveCake(x,y)
+               Preconditions: InHouse(x),HasCake(x),Alive(y)
+               Postconditions: !HasCake(x),HasCake(y)
