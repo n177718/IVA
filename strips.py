@@ -352,7 +352,7 @@ def linear_solver(world):
 
     goals = list(world.goals)
     solution = linear_solver_helper(world, state, goals, [])
-    find_SE(solution,goals)
+#    find_SE(solution,goals)
 
     return solution
 
