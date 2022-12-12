@@ -577,6 +577,7 @@ def print_plan(plan):
     print "Plan: {0}".format(" -> ".join([x.simple_str() for x in plan]))
 
 def find_SE(solution,goals):
+    SE = []
     if solution is None:
         print("11")
     else:
@@ -584,11 +585,41 @@ def find_SE(solution,goals):
             for goal in goals:
                 for p in i.post:
                     if strong_match(p,goal):
-                        print(i.simple_str())
+                        SE.append(i)
+    return SE
 
+def find_IE(solution,world,precondition):
+    IE =[]
+    goals = world.goals
+    SE = find_SE(solution,goals)
+    for i in SE:
+        IE.append(find_previous(solution,i,precondition))
+    return IE
+        
+def IE_helper(action,precondition):
+    for p in precondition:
+        if strong_match(p,action):
+            return True
+    return false
+
+def find_previous(solution,action,precondition):
+    while not IE_helper(action,precondition) :
+        for i in solution:
+            for p in i.post:
+                if strong_match(p,action.pre)
+                    action = i
+                    break
+            break
+        break
+    return action
 def main():
     w = create_world(None)
+    precondition = []
 
+    # the world state is a dictionary from predicate names to true grounded args of that predicate
+    for predicate in world.state:
+        for literals in world.state[predicate]:
+            precondtion.append(GroundedCondition(predicate, literals, True))
     # Did someone start us at the goal?
     already_solved = w.goal_reached()
     print "Goal already solved? {0}".format(already_solved)
@@ -601,7 +632,7 @@ def main():
         else:
             print "Solved!"
             print_plan(solution)
-            find_SE(solution,w.goals)
+            find_IE(solution,w,precondition)
 
             #from show_strips import show_solution
             #show_solution(solution)
