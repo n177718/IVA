@@ -585,7 +585,7 @@ def find_SE(solution,goals):
             for goal in goals:
                 for p in i.post:
                     if strong_match(p,goal):
-                        print(p.simple_str())
+                        print(i.simple_str())
 
 def main():
     w = create_world(None)
