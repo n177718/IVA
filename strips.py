@@ -352,7 +352,7 @@ def linear_solver(world):
 
     goals = list(world.goals)
     solution = linear_solver_helper(world, state, goals, [])
-    find_SE(goals,solution)
+    find_SE(solution,goals)
     return solution
 
 def linear_solver_helper(world, state, goals, current_plan, depth = 0):
@@ -581,8 +581,9 @@ def find_SE(goals,solution):
     for x in solution:
         for ground in x.grounds:
             for p in ground.post:
-                if strong_match(p, goal):
-                    results.append(ground)
+                for g in goals:
+                    if strong_match(p, goals):
+                        results.append(ground)
                     
     print(results)
 #    return SE
