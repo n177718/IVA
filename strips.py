@@ -617,8 +617,8 @@ def main():
     precondition = []
 
     # the world state is a dictionary from predicate names to true grounded args of that predicate
-    for predicate in world.state:
-        for literals in world.state[predicate]:
+    for predicate in w.state:
+        for literals in w.state[predicate]:
             precondtion.append(GroundedCondition(predicate, literals, True))
     # Did someone start us at the goal?
     already_solved = w.goal_reached()
