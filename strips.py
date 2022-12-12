@@ -352,7 +352,6 @@ def linear_solver(world):
 
     goals = list(world.goals)
     solution = linear_solver_helper(world, state, goals, [])
-    find_SE(solution,goals)
 
     return solution
 
@@ -602,6 +601,8 @@ def main():
         else:
             print "Solved!"
             print_plan(solution)
+            find_SE(solution,goals)
+
             #from show_strips import show_solution
             #show_solution(solution)
 
