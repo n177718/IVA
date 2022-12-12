@@ -606,7 +606,7 @@ def find_previous(solution,action,precondition):
     while not IE_helper(action,precondition) :
         for i in solution:
             for p in i.post:
-                if strong_match(p,action.pre)
+                if strong_match(p,action.pre):
                     action = i
                     break
             break
