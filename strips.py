@@ -351,7 +351,9 @@ def linear_solver(world):
             state.append(GroundedCondition(predicate, literals, True))
 
     goals = list(world.goals)
-    return linear_solver_helper(world, state, goals, [])
+    solution = linear_solver_helper(world, state, goals, [])
+    find_SE(goals,solution)
+    return solution
 
 def linear_solver_helper(world, state, goals, current_plan, depth = 0):
     padding = "".join(["++" for x in range(0,len(current_plan))]) + " "
@@ -574,6 +576,13 @@ def get_possible_grounds(world, goal):
 def print_plan(plan):
     print "Plan: {0}".format(" -> ".join([x.simple_str() for x in plan]))
 
+def find_SE(goals,solution):
+    SE = []
+    for x in solution:
+        if x.post in goals:
+            SE.append(x)
+    print(SE)
+#    return SE
 
 def main():
     w = create_world(None)
