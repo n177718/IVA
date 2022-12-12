@@ -578,11 +578,14 @@ def print_plan(plan):
     print "Plan: {0}".format(" -> ".join([x.simple_str() for x in plan]))
 
 def find_SE(solution,goals):
-    for i in solution:
-        for goal in goals:
-            for p in i.post:
-                if strong_match(p,goal):
-                    print(p.simple_str())
+    if solution is None:
+        print("11")
+    else:
+        for i in solution:
+            for goal in goals:
+                for p in i.post:
+                    if strong_match(p,goal):
+                        print(p.simple_str())
 
 def main():
     w = create_world(None)
