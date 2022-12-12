@@ -579,6 +579,7 @@ def print_plan(plan):
 def find_SE(goals,solution):
     SE = []
     for x in solution:
+        print x.post
         if x.post in goals:
             SE.append(x)
     print(SE)
