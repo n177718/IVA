@@ -580,7 +580,7 @@ def find_SE(goals,solution):
     results = []
     for s in solution:
         for g in goals:
-            if strong_match(p, g):
+            if strong_match(s, g):
                 results.append(ground)
                     
     print(results)
