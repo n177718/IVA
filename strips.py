@@ -581,7 +581,8 @@ def find_SE(goals,world,state):
     for goal in goals:
         result = sorted(get_possible_grounds(world, goal), key=lambda c: initial_state_distance(state, c.pre))
         results.append(result)
-    print(results)
+    for i in results:  
+        print(i.simple_str())
 #    return SE
 
 def main():
