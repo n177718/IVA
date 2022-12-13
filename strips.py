@@ -635,7 +635,9 @@ def main():
         else:
             print "Solved!"
             print_plan(solution)
-            print(find_IE(solution,w,precondition).simple_str())
+            IE = find_IE(solution,w,precondition)
+            for i in IE:
+                print(i.simple_str())
 
             #from show_strips import show_solution
             #show_solution(solution)
