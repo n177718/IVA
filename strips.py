@@ -601,7 +601,7 @@ def find_IE(solution,world,precondition):
         if tmp_causal > causality:
             tmp_causal = causality
             IE = tmp
-    print(tmp)
+    print(IE)
     
 def previous(action,solution):
     for a in action.pre:
