@@ -592,7 +592,8 @@ def find_IE(solution,world,precondition):
     SE = find_SE(solution,world.goals)
     causality = 0
     tmp_causal= 0 
-    IE = SE
+    IE = SE[0]
+    final_SE = SE[0]
     for s in SE:
         tmp = s
         while not IE_helper(tmp,precondition):
@@ -601,10 +602,17 @@ def find_IE(solution,world,precondition):
         if tmp_causal > causality:
             tmp_causal = causality
             IE = tmp
-    for i in solution:
-        if i == IE:
-            print(i)
+            final_SE = s
+    for i in range(len(solution)):
+        if solution[i] == IE:
+            print(solution.pop(i))
             break
+    for j in range(len(solution)):
+        if solution[j] == final_SE:
+            insert(j,IE)
+    print(solution)
+        
+    
     
 def previous(action,solution):
     for a in action.pre:
