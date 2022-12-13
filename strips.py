@@ -606,7 +606,7 @@ def find_IE(solution,world,precondition):
             result_SE = i
             IE = tmp_IE
             causality = tmp_causality
-            print(tmp_result[0])
+            print(tmp_result[0].simple_str())
             print(tmp_result[1])
             result = tmp_result
     return result
