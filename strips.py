@@ -623,6 +623,7 @@ def find_previous(solution,action,precondition,causality=0):
             for p in i.post:
                 for pre in action.pre:
                     if strong_match(p,pre):
+                        print(1)
                         find_previous(solution,i,precondition,causality)  
     
 
