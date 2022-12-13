@@ -590,11 +590,18 @@ def find_SE(solution,goals):
 
 def find_IE(solution,world,precondition):
     SE = find_SE(solution,world.goals)
+    causality = 0
+    tmp_causal= 0 
+    IE = SE
     for s in SE:
         tmp = s
         while not IE_helper(tmp,precondition):
             tmp = previous(tmp,solution)
-            print(tmp)
+            tmp_causal += 1
+        if causlity > causal:
+            IE = tmp
+    print(tmp)
+    
 def previous(action,solution):
     for a in action.pre:
         for s in solution:
