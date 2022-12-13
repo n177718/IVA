@@ -596,6 +596,7 @@ def find_IE(solution,world,precondition):
     causality = 0
     for i in SE:
         tmp_IE,tmp_causality = find_previous(solution,i,precondition)
+        print(tmp_causality)
         if tmp_causality > causality:
             result_SE = i
             IE = tmp_IE
