@@ -589,10 +589,10 @@ def find_SE(solution,goals):
     return SE
 
 def find_IE(solution,world,precondition):
-    IE = SE[0]
     goals = world.goals
     SE = find_SE(solution,goals)
     result_SE = SE[0]
+    IE = SE[0]
     causality = 0
     for i in SE:
         tmp_IE,tmp_causality = find_previous(solution,i,precondition)
