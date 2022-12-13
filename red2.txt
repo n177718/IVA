@@ -7,8 +7,8 @@ Actions:
                Preconditions:KnowGranny(x),HasCake(x),AtHome(x)
                Postconditions:AtDoor(x),!AtHome(x)
 	       //Wolf eats Granny and pretend Granny
-               EatPretendGranny(x,y)
-               Preconditions:Hungry(x),Alive(y)
+               EatPretendGranny(x,y,z)
+               Preconditions:Hungry(x),Alive(y), AtDoor(z)
                Postconditions:InBelly(y),PretendGranny(x),!Alive(y),!Hungry(x)
 	       //Red enters the house
                EnterHouse(x)
