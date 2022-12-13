@@ -624,7 +624,7 @@ def main():
     # Did someone start us at the goal?
     already_solved = w.goal_reached()
     print "Goal already solved? {0}".format(already_solved)
-
+    w = create_world(None)
     if not already_solved:
         print "Solving..."
         solution = linear_solver(w)
