@@ -612,6 +612,7 @@ def IE_helper(action,precondition):
     return False
 
 def find_previous(solution,action,precondition):
+    print(precondition)
     causality = 0
     while not IE_helper(action,precondition) :
         causality += 1
