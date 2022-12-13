@@ -601,7 +601,7 @@ def IE_helper(action,precondition):
         for p in precondition:
             if strong_match(p,i):
                 return True
-    return false
+    return False
 
 def find_previous(solution,action,precondition):
     while not IE_helper(action,precondition) :
