@@ -589,12 +589,20 @@ def find_SE(solution,goals):
     return SE
 
 def find_IE(solution,world,precondition):
-    IE =[]
+    IE = SE[0]
     goals = world.goals
     SE = find_SE(solution,goals)
+    result_SE = SE[0]
+    causality = 0
     for i in SE:
-        IE.append(find_previous(solution,i,precondition))
-    return IE
+        tmp_IE,tmp_causality = find_previous(solution,i,precondition)
+        if tmp_causality > causality:
+            result_SE = i
+            IE = tmp_IE
+            causality = tmp_causality
+    print(result_SE.simple_str())
+    print(IE.simple_str())
+    return result_SE, IE
         
 def IE_helper(action,precondition):
     for i in action.pre:
@@ -604,17 +612,20 @@ def IE_helper(action,precondition):
     return False
 
 def find_previous(solution,action,precondition):
+    causality = 0
     while not IE_helper(action,precondition) :
-        for i in solution:
-            for p in i.post:
-                for pre in action.pre:
-                    if strong_match(p,pre):
-                        action = i
-                        break
+        causality += 1
+            for i in solution:
+                for p in i.post:
+                    for pre in action.pre:
+                        if strong_match(p,pre):
+                            action = i
+                            break
+                    break
                 break
             break
-        break
-    return action
+    return action,causality
+def causual
 def main():
     w = create_world(None)
     precondition = []
@@ -636,8 +647,6 @@ def main():
             print "Solved!"
             print_plan(solution)
             IE = find_IE(solution,w,precondition)
-            for i in IE:
-                print(i.simple_str())
 
             #from show_strips import show_solution
             #show_solution(solution)
