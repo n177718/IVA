@@ -626,6 +626,7 @@ def find_previous(solution,action,precondition):
                 break
             break
         break
+    print(action)
     return action,causality
 
 def main():
