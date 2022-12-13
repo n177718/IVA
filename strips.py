@@ -602,7 +602,7 @@ def find_IE(solution,world,precondition):
             tmp_causal = causality
             IE = tmp
     for i in solution:
-        if i = IE:
+        if i == IE:
             print(i)
             break
     
