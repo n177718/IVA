@@ -606,6 +606,7 @@ def find_IE(solution,world,precondition):
         
 def IE_helper(action,precondition):
     for i in action.pre:
+        print(i)
         for p in precondition:
             if strong_match(p,i):
                 return True
@@ -636,7 +637,6 @@ def main():
     # the world state is a dictionary from predicate names to true grounded args of that predicate
     for predicate in w.state:
         for literals in w.state[predicate]:
-            print(literals)
             precondition.append(GroundedCondition(predicate, literals, True))
     # Did someone start us at the goal?
     already_solved = w.goal_reached()
