@@ -607,8 +607,8 @@ def find_IE(solution,world,precondition):
 def IE_helper(action,precondition):
     for i in action.pre:
         for p in precondition:
-            print(p.simple_str())
             if strong_match(p,i):
+                print("yes")
                 return True
     return False
 
