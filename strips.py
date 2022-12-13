@@ -608,7 +608,7 @@ def find_previous(solution,action,precondition):
         for i in solution:
             for p in i.post:
                 for pre in action.pre:
-                    if strong_match(p,action.pre):
+                    if strong_match(p,pre):
                         action = i
                         break
                 break
