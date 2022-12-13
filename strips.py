@@ -615,15 +615,15 @@ def find_previous(solution,action,precondition):
     causality = 0
     while not IE_helper(action,precondition) :
         causality += 1
-            for i in solution:
-                for p in i.post:
-                    for pre in action.pre:
-                        if strong_match(p,pre):
-                            action = i
-                            break
-                    break
+        for i in solution:
+            for p in i.post:
+                for pre in action.pre:
+                    if strong_match(p,pre):
+                        action = i
+                        break
                 break
             break
+        break
     return action,causality
 def causual
 def main():
