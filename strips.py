@@ -589,27 +589,10 @@ def find_SE(solution,goals):
     return SE
 
 def find_IE(solution,world,precondition):
-    goals = world.goals
-    SE = find_SE(solution,goals)
-    result_SE = SE[0]
-    IE = SE[0]
-    causality = 0
-    tmp_IE = SE[0]
-    tmp_causality = 0
-    tmp_result = []
-    result = []
-    for i in SE:
-        tmp_result = find_previous(solution,i,precondition)
-        print(tmp_IE, causality)
-        causality = tmp_result[1]
-        if tmp_causality > causality:
-            result_SE = i
-            IE = tmp_IE
-            causality = tmp_causality
-            print(tmp_result[0].simple_str())
-            print(tmp_result[1])
-            result = tmp_result
-    return result
+    for i in solution:
+        if IE_helper(i,precondition):
+            print(i)
+
         
 def IE_helper(action,precondition):
     for i in action.pre:    
@@ -618,16 +601,8 @@ def IE_helper(action,precondition):
                 return True
     return False
 
-def find_previous(solution,action,precondition,causality=0):
-    if IE_helper(action,precondition):
-        return [action,causality]
-    else:
-        causality+=1
-        for i in solution:
-            for p in i.post:
-                for pre in action.pre:
-                    if strong_match(p,pre):
-                        find_previous(solution,i,precondition,causality)  
+
+     
     
 
 def main():
