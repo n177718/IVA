@@ -609,8 +609,6 @@ def IE_helper(action,precondition):
     for i in action.pre:    
         for p in precondition:
             if strong_match(p,i):
-                print(p)
-                print(i)
                 return True
     return False
 
@@ -623,11 +621,9 @@ def find_previous(solution,action,precondition,causality=0):
             for p in i.post:
                 for pre in action.pre:
                     if strong_match(p,pre):
-                        find_previous(solution,i,precondition,causality)
-            
-            
-    
+                        find_previous(solution,i,precondition,causality)  
     print(causality)
+    print(action)
     return action,causality
 
 def main():
