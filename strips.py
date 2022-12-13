@@ -624,8 +624,7 @@ def find_previous(solution,action,precondition):
                     if strong_match(p,pre):
                         action = i
                         break                
-                return action,causality
-            break
+            
     
     print(causality)
     return action,causality
