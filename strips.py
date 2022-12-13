@@ -606,12 +606,12 @@ def find_IE(solution,world,precondition):
             final_SE = s
     for i in range(len(results)):
         if results[i] == IE:
-            print(results.pop(i))
+            results.pop(i)
             break
-    print_plan(results)
     for j in range(len(results)):
         if results[j] == final_SE:
             results.insert(j+1,IE)
+    print("After flashback applied:")
     print_plan(results)
         
     
