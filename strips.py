@@ -609,7 +609,7 @@ def find_IE(solution,world,precondition):
             break
     for j in range(len(solution)):
         if solution[j] == final_SE:
-            insert(j,IE)
+            solution.insert(j,IE)
     print(solution)
         
     
