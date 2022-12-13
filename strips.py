@@ -598,7 +598,8 @@ def find_IE(solution,world,precondition):
         while not IE_helper(tmp,precondition):
             tmp = previous(tmp,solution)
             tmp_causal += 1
-        if causality > causal:
+        if tmp_causal > causality:
+            tmp_causal = causality
             IE = tmp
     print(tmp)
     
