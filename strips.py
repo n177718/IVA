@@ -611,7 +611,7 @@ def find_IE(solution,world,precondition):
     print_plan(results)
     for j in range(len(results)):
         if results[j] == final_SE:
-            results.insert(j,IE)
+            results.insert(j+1,IE)
     print_plan(results)
         
     
