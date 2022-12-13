@@ -591,7 +591,10 @@ def find_SE(solution,goals):
 def find_IE(solution,world,precondition):
     SE = find_SE(solution,world.goals)
     for s in SE:
-        print(previous(s,solution))
+        tmp = s
+        while not IE_helper(tmp,precondition):
+            tmp = previous(tmp,solution)
+            print(tmp)
 def previous(action,solution):
     for a in action.pre:
         for s in solution:
