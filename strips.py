@@ -597,9 +597,10 @@ def find_IE(solution,world,precondition):
     return IE
         
 def IE_helper(action,precondition):
-    for p in precondition:
-        if strong_match(p,action):
-            return True
+    for i in action.pre:
+        for p in precondition:
+            if strong_match(p,i):
+                return True
     return false
 
 def find_previous(solution,action,precondition):
