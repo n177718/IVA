@@ -613,17 +613,17 @@ def IE_helper(action,precondition):
                 return True
     return False
 
-def find_previous(solution,action,precondition):
-    causality = 0
-    while not IE_helper(action,precondition) :
-        print(action)
-        causality += 1
+def find_previous(solution,action,precondition,causality=0):
+    if IE_helper(action,precondition):
+        return action,causality
+    else:
+        causality+=1
         for i in solution:
             for p in i.post:
                 for pre in action.pre:
                     if strong_match(p,pre):
-                        action = i
-                        break                
+                        find_previous(solution,i,precondition,causality)
+            
             
     
     print(causality)
