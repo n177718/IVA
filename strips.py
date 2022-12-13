@@ -589,9 +589,15 @@ def find_SE(solution,goals):
     return SE
 
 def find_IE(solution,world,precondition):
-    for i in solution:
-        if IE_helper(i,precondition):
-            print(i)
+    SE = find_SE(solution,world.goals)
+    for s in SE:
+        print(previous(s,solution))
+def previous(action,solution):
+    for a in action.pre:
+        for s in solution:
+            for p in s.post:
+                if strong_match(a,p):
+                    return s
 
         
 def IE_helper(action,precondition):
