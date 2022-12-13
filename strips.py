@@ -597,14 +597,11 @@ def find_IE(solution,world,precondition):
     tmp_IE = SE[0]
     for i in SE:
         tmp_IE,tmp_causality = find_previous(solution,i,precondition)
-        print(tmp_causality)
-        print(tmp_IE)
+
         if tmp_causality > causality:
             result_SE = i
             IE = tmp_IE
             causality = tmp_causality
-    print(result_SE.simple_str())
-    print(IE.simple_str())
     return result_SE, IE
         
 def IE_helper(action,precondition):
@@ -628,6 +625,7 @@ def find_previous(solution,action,precondition):
             break
         break
     print(action)
+    print(causality)
     return action,causality
 
 def main():
