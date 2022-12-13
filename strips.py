@@ -625,7 +625,7 @@ def find_previous(solution,action,precondition):
             break
         break
     return action,causality
-def causual
+
 def main():
     w = create_world(None)
     precondition = []
