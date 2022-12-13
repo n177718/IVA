@@ -624,7 +624,7 @@ def find_previous(solution,action,precondition,causality=0):
                 for pre in action.pre:
                     if strong_match(p,pre):
                         find_previous(solution,i,precondition,causality)  
-    return action,causality
+    
 
 def main():
     w = create_world(None)
