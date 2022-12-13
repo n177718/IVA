@@ -607,12 +607,12 @@ def find_IE(solution,world,precondition):
 def IE_helper(action,precondition):
     for i in action.pre:
         for p in precondition:
+            print(p.simple_str())
             if strong_match(p,i):
                 return True
     return False
 
 def find_previous(solution,action,precondition):
-    print(precondition)
     causality = 0
     while not IE_helper(action,precondition) :
         causality += 1
