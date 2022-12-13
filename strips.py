@@ -608,6 +608,7 @@ def find_IE(solution,world,precondition):
         if results[i] == IE:
             print(results.pop(i))
             break
+    print_plan(results)
     for j in range(len(results)):
         if results[j] == final_SE:
             results.insert(j,IE)
